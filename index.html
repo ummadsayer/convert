@@ -1,349 +1,731 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="bn" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Sayer | সায়ের — বাংলার মুসলিম কবি (Bengali AI Poet)</title>
+<!-- ═══ PRIMARY SEO ═══ -->
+<title>Sayer | সায়ের — বাংলার মুসলিম কবি · AI Bengali Poet Chatbot</title>
+<meta name="description" content="সায়ের (Sayer) — কাজী নজরুল ইসলাম ও ওসমান হাদীর অনুপ্রেরণায় তৈরি একজন জীবন্ত বাংলাদেশী মুসলিম AI কবি। Chat in Bangla, get poetry back. Free, fast, beautiful. Created by Ahnaf Tahsin.">
+<meta name="keywords" content="Sayer,সায়ের,Bengali AI Poet,বাংলা AI কবি,Muslim poet chatbot,Nazrul AI,Osman Hadee AI,Bangla chatbot,Islamic poetry AI,Ahnaf Tahsin,ahnaf.pro.bd,বাংলা কবিতা,AI poem generator Bangla,Claude AI Bangla">
+<meta name="author" content="Ahnaf Tahsin — ahnaf.pro.bd">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#080c10">
+<link rel="canonical" href="https://ahnaf.pro.bd/sayer">
 
-<meta name="description" content="সায়ের (Sayer) - একজন জীবন্ত, প্রাণবন্ত, রসিক বাংলাদেশী মুসলিম কবি চ্যাটবট। Chat with Sayer, the AI Bengali Muslim poet inspired by Kazi Nazrul Islam and Osman Hadee. Created by Ahnaf Tahsin.">
-<meta name="keywords" content="Sayer, সায়ের, Bengali AI Poet, বাংলা এআই কবি, Muslim poet chatbot, Ahnaf Tahsin, Islamic AI, Bangla Chatbot, Puter.js">
-<meta name="author" content="Ahnaf Tahsin">
-<meta name="robots" content="index, follow">
-
-<meta property="og:title" content="Sayer | সায়ের — বাংলার মুসলিম কবি">
-<meta property="og:description" content="সায়েরের সাথে কথা বলুন! A lively, rhyming Bengali Muslim AI poet chatbot.">
+<!-- ═══ OPEN GRAPH ═══ -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://ahnaf.pro.bd/sayer">
+<meta property="og:title" content="Sayer | সায়ের — বাংলার মুসলিম AI কবি">
+<meta property="og:description" content="নজরুল ও ওসমান হাদীর অনুপ্রেরণায় তৈরি বাংলার প্রথম AI কবি চ্যাটবট। কথা বলো, কবিতা পাও।">
 <meta property="og:locale" content="bn_BD">
+<meta property="og:site_name" content="Sayer — সায়ের">
 
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sayer | সায়ের — Bengali AI Poet">
+<meta name="twitter:description" content="Chat with Sayer — a lively, rhyming Bengali Muslim AI poet. নজরুল ও ওসমান হাদীর অনুপ্রেরণায়।">
+<meta name="twitter:creator" content="@ahnaftahsin">
+
+<!-- ═══ STRUCTURED DATA (Schema.org) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Sayer — সায়ের",
+  "alternateName": "Bengali AI Poet",
+  "description": "An AI-powered Bengali Muslim poet chatbot inspired by Kazi Nazrul Islam and Osman Hadee, created by Ahnaf Tahsin.",
+  "url": "https://ahnaf.pro.bd/sayer",
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Web",
+  "inLanguage": ["bn", "en"],
+  "creator": {
+    "@type": "Person",
+    "name": "Ahnaf Tahsin",
+    "url": "https://ahnaf.pro.bd"
+  },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BDT" }
+}
+</script>
+
+<!-- ═══ FONTS — display=swap for performance ═══ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Cinzel:wght@400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
+/* ════════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════════ */
 :root {
-  --bg-deep:     #080c10;
-  --bg-input:    #0a0f15;
-  --border:      rgba(180,145,70,0.18);
-  --border-glow: rgba(180,145,70,0.40);
-  --gold:        #c9a84c;
-  --gold-dim:    #8a6a28;
-  --text-main:   #e8dcc8;
-  --text-muted:  #7a6e5e;
-  --text-poem:   #d4c4a0;
-  --green-mid:   #122b1a;
-  --green-acc:   #1e4a2a;
-  --radius:      14px;
+  --bg-deep:       #060a0d;
+  --bg-panel:      #0a1018;
+  --bg-input:      #0c1420;
+  --bg-user:       rgba(201,168,76,.1);
+  --bg-bot:        rgba(12,38,22,.75);
+  --border:        rgba(180,145,70,.16);
+  --border-glow:   rgba(180,145,70,.38);
+  --gold:          #c9a84c;
+  --gold-light:    #e8c97a;
+  --gold-dim:      #8a6a28;
+  --text-main:     #ede4d2;
+  --text-muted:    #6a6055;
+  --text-poem:     #d8c8a4;
+  --green-deep:    #0c2218;
+  --green-mid:     #122b1a;
+  --green-acc:     #1c4828;
+  --green-bright:  #2a6038;
+  --red-err:       rgba(180,60,60,.8);
+  --radius:        14px;
+  --radius-sm:     8px;
+  --shadow-gold:   0 0 60px rgba(201,168,76,.18);
+  --shadow-green:  0 6px 28px rgba(18,70,35,.45);
+  --transition:    .22s cubic-bezier(.4,0,.2,1);
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;background:var(--bg-deep);color:var(--text-main);font-family:'Noto Serif Bengali',serif;overflow:hidden;}
 
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+/* ════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════ */
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+
+html { -webkit-text-size-adjust:100%; }
+
+body {
+  height:100dvh;
+  background:var(--bg-deep);
+  color:var(--text-main);
+  font-family:'Noto Serif Bengali',serif;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ════════════════════════════════════════
+   AMBIENT BACKGROUND
+════════════════════════════════════════ */
+body::before {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
   background:
-    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(180,145,70,0.07) 0%,transparent 70%),
-    radial-gradient(ellipse 40% 50% at 0% 100%,rgba(18,80,40,0.12) 0%,transparent 60%);
+    radial-gradient(ellipse 55% 35% at 50% -5%, rgba(180,145,70,.09) 0%, transparent 65%),
+    radial-gradient(ellipse 38% 52% at 2%  102%, rgba(18,80,40,.14)  0%, transparent 58%),
+    radial-gradient(ellipse 30% 30% at 98%  98%, rgba(12,60,30,.08)  0%, transparent 55%);
 }
 
-.app{
-  position:relative;z-index:1;
-  display:grid;grid-template-rows:auto 1fr auto;
-  height:100vh;max-width:780px;margin:0 auto;padding:0 20px;
+/* ════════════════════════════════════════
+   GRAIN TEXTURE OVERLAY
+════════════════════════════════════════ */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size:200px;
 }
 
-/* HEADER */
-header{padding:26px 0 18px;text-align:center;}
-.arabic-top{font-family:'Amiri',serif;font-size:1rem;color:var(--gold);opacity:.65;letter-spacing:3px;margin-bottom:14px;animation:up 1s ease both;}
-.logo-line{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:5px;animation:up 1s .15s ease both;opacity:0;}
-.ornament{color:var(--gold-dim);font-size:1rem;opacity:.7;}
-/* Added semantic H1 for SEO */
-h1.logo-name { margin: 0; font-family:'Cinzel',serif;font-size:clamp(1.9rem,5vw,2.9rem);font-weight:700;letter-spacing:10px;color:var(--gold);text-shadow:0 0 60px rgba(201,168,76,.35),0 2px 0 rgba(0,0,0,.6);line-height:1;}
-.logo-bn{font-family:'Noto Serif Bengali',serif;font-size:.85rem;font-weight:300;color:var(--text-muted);letter-spacing:2px;animation:up 1s .3s ease both;opacity:0;}
-.header-rule{width:100%;height:1px;background:linear-gradient(90deg,transparent 0%,var(--border-glow) 30%,var(--gold-dim) 50%,var(--border-glow) 70%,transparent 100%);margin-top:16px;animation:up 1s .4s ease both;opacity:0;}
+/* ════════════════════════════════════════
+   APP SHELL
+════════════════════════════════════════ */
+.app {
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  height:100dvh;
+  max-width:800px;
+  margin:0 auto;
+  padding:0 22px;
+}
 
-/* CHAT */
-.messages{overflow-y:auto;display:flex;flex-direction:column;gap:0;padding:8px 0 12px;scroll-behavior:smooth;}
-.messages::-webkit-scrollbar{width:3px;}
-.messages::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
+/* ════════════════════════════════════════
+   HEADER
+════════════════════════════════════════ */
+header { padding:22px 0 16px; text-align:center; }
 
-.greeting{padding:28px 0 14px;text-align:center;animation:up 1s .6s ease both;opacity:0;}
-.greeting-poem{font-family:'Noto Serif Bengali',serif;font-size:1.02rem;font-style:italic;color:var(--text-poem);line-height:2.1;white-space:pre-line;}
-.greeting-seal{display:inline-block;margin-top:12px;font-family:'Lora',serif;font-size:.7rem;font-style:italic;color:var(--gold-dim);letter-spacing:1px;border-top:1px solid var(--border);padding-top:7px;}
+.arabic-top {
+  font-family:'Amiri',serif;
+  font-size:.95rem;
+  color:var(--gold);
+  opacity:.6;
+  letter-spacing:3px;
+  margin-bottom:12px;
+  animation:fadeUp .9s ease both;
+}
 
-.row{display:flex;padding:8px 0;animation:up .35s ease both;opacity:0;}
-.row.user{justify-content:flex-end;}
-.row.bot{justify-content:flex-start;}
+.logo-line {
+  display:flex; align-items:center; justify-content:center; gap:14px;
+  margin-bottom:4px;
+  animation:fadeUp .9s .12s ease both; opacity:0;
+}
 
-.bubble{max-width:76%;padding:13px 18px;font-size:.96rem;line-height:1.95;position:relative;}
-.row.user .bubble{
-  background:linear-gradient(135deg,rgba(201,168,76,.13),rgba(201,168,76,.07));
-  border:1px solid rgba(201,168,76,.22);
+.ornament { color:var(--gold-dim); font-size:.9rem; opacity:.65; }
+
+h1.logo-name {
+  margin:0;
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.8rem,4.8vw,2.8rem);
+  font-weight:700;
+  letter-spacing:11px;
+  color:var(--gold);
+  text-shadow: var(--shadow-gold), 0 2px 0 rgba(0,0,0,.7);
+  line-height:1;
+}
+
+.logo-bn {
+  font-family:'Noto Serif Bengali',serif;
+  font-size:.82rem;
+  font-weight:300;
+  color:var(--text-muted);
+  letter-spacing:2px;
+  animation:fadeUp .9s .28s ease both; opacity:0;
+}
+
+.header-rule {
+  width:100%; height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--border-glow) 28%,var(--gold-dim) 50%,var(--border-glow) 72%,transparent 100%);
+  margin-top:15px;
+  animation:fadeUp .9s .4s ease both; opacity:0;
+}
+
+/* ════════════════════════════════════════
+   CHAT AREA
+════════════════════════════════════════ */
+.messages {
+  overflow-y:auto;
+  display:flex; flex-direction:column; gap:0;
+  padding:6px 0 14px;
+  scroll-behavior:smooth;
+}
+.messages::-webkit-scrollbar { width:3px; }
+.messages::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:2px; }
+
+/* ── Greeting ── */
+.greeting {
+  padding:24px 0 12px;
+  text-align:center;
+  animation:fadeUp 1s .55s ease both; opacity:0;
+}
+.greeting-poem {
+  font-family:'Noto Serif Bengali',serif;
+  font-size:1rem;
+  font-style:italic;
+  color:var(--text-poem);
+  line-height:2.15;
+  white-space:pre-line;
+}
+.greeting-seal {
+  display:inline-block;
+  margin-top:11px;
+  font-family:'Lora',serif;
+  font-size:.68rem;
+  font-style:italic;
+  color:var(--gold-dim);
+  letter-spacing:1px;
+  border-top:1px solid var(--border);
+  padding-top:7px;
+}
+
+/* ── Message Rows ── */
+.row {
+  display:flex;
+  padding:7px 0;
+  animation:fadeUp .32s ease both; opacity:0;
+}
+.row.user { justify-content:flex-end; }
+.row.bot  { justify-content:flex-start; }
+
+.bubble {
+  max-width:78%;
+  padding:13px 18px;
+  font-size:.96rem;
+  line-height:2;
+  position:relative;
+}
+
+.row.user .bubble {
+  background:var(--bg-user);
+  border:1px solid rgba(201,168,76,.2);
   border-radius:var(--radius) 4px var(--radius) var(--radius);
-  color:var(--text-main);font-family:'Noto Serif Bengali',serif;font-size:.92rem;
-}
-.row.bot .bubble{
-  background:linear-gradient(135deg,rgba(18,43,26,.7),rgba(13,33,20,.85));
-  border:1px solid rgba(180,145,70,.15);
-  border-radius:4px var(--radius) var(--radius) var(--radius);
-  color:var(--text-poem);font-family:'Noto Serif Bengali',serif;
-  white-space:pre-wrap;font-size:.99rem;line-height:2.05;
-}
-.row.bot .bubble::before{
-  content:'';position:absolute;top:0;left:0;
-  width:2px;height:100%;border-radius:2px;
-  background:linear-gradient(180deg,var(--gold-dim),transparent);
+  color:var(--text-main);
+  font-family:'Noto Serif Bengali',serif;
+  font-size:.91rem;
 }
 
-/* streaming cursor */
-.cursor{
-  display:inline-block;width:2px;height:1em;
-  background:var(--gold-dim);margin-left:2px;
+.row.bot .bubble {
+  background:var(--bg-bot);
+  border:1px solid rgba(180,145,70,.13);
+  border-radius:4px var(--radius) var(--radius) var(--radius);
+  color:var(--text-poem);
+  font-family:'Noto Serif Bengali',serif;
+  white-space:pre-wrap;
+  font-size:.98rem;
+  line-height:2.1;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+
+/* gold left bar */
+.row.bot .bubble::before {
+  content:''; position:absolute; top:0; left:0;
+  width:2px; height:100%; border-radius:2px;
+  background:linear-gradient(180deg, var(--gold-dim) 0%, transparent 100%);
+}
+
+/* ── Poem action buttons ── */
+.poem-actions {
+  display:flex; gap:8px; margin-top:10px; opacity:0;
+  transition:opacity var(--transition);
+}
+.row.bot:hover .poem-actions { opacity:1; }
+.poem-actions button {
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:var(--radius-sm);
+  color:var(--text-muted);
+  font-size:.62rem;
+  padding:4px 9px;
+  cursor:pointer;
+  font-family:'Lora',serif;
+  letter-spacing:.5px;
+  transition:all var(--transition);
+  display:flex; align-items:center; gap:4px;
+}
+.poem-actions button:hover {
+  border-color:var(--gold-dim);
+  color:var(--gold);
+  background:rgba(201,168,76,.05);
+}
+.poem-actions button svg { width:11px; height:11px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ── Streaming cursor ── */
+.cursor {
+  display:inline-block; width:2px; height:1em;
+  background:var(--gold-dim); margin-left:2px;
   vertical-align:text-bottom;
   animation:blink .7s infinite;
 }
 
-/* typing dots (before stream starts) */
-.typing-row{display:flex;padding:8px 0;animation:up .35s ease both;opacity:0;}
-.typing{display:flex;align-items:center;gap:6px;padding:15px 18px;
-  background:linear-gradient(135deg,rgba(18,43,26,.7),rgba(13,33,20,.85));
-  border:1px solid rgba(180,145,70,.15);
-  border-radius:4px var(--radius) var(--radius) var(--radius);}
-.typing span{width:6px;height:6px;border-radius:50%;background:var(--gold-dim);animation:pulse 1.3s infinite;}
-.typing span:nth-child(2){animation-delay:.2s;}
-.typing span:nth-child(3){animation-delay:.4s;}
-
-/* INPUT */
-.input-zone{padding:14px 0 22px;}
-.input-rule{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border) 40%,var(--border) 60%,transparent);margin-bottom:14px;}
-.input-row{display:flex;gap:10px;align-items:flex-end;}
-
-textarea{
-  flex:1;background:var(--bg-input);border:1px solid var(--border);border-radius:var(--radius);
-  color:var(--text-main);font-family:'Noto Serif Bengali',serif;font-size:.94rem;line-height:1.7;
-  padding:13px 17px;resize:none;outline:none;min-height:50px;max-height:130px;overflow-y:auto;
-  transition:border-color .25s;
+/* ── Typing dots ── */
+.typing-row {
+  display:flex; padding:7px 0;
+  animation:fadeUp .32s ease both; opacity:0;
 }
-textarea::placeholder{color:var(--text-muted);font-style:italic;font-size:.86rem;}
-textarea:focus{border-color:var(--border-glow);}
-textarea::-webkit-scrollbar{width:3px;}
-textarea::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:2px;}
-
-.send{
-  width:50px;height:50px;
-  background:linear-gradient(145deg,var(--green-acc),var(--green-mid));
-  border:1px solid rgba(180,145,70,.3);border-radius:var(--radius);
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:all .2s;color:var(--gold);
+.typing {
+  display:flex; align-items:center; gap:6px;
+  padding:14px 18px;
+  background:var(--bg-bot);
+  border:1px solid rgba(180,145,70,.13);
+  border-radius:4px var(--radius) var(--radius) var(--radius);
 }
-.send:hover:not(:disabled){background:linear-gradient(145deg,#2a6038,#1a3c24);border-color:var(--gold-dim);box-shadow:0 4px 20px rgba(26,74,42,.5);}
-.send:disabled{opacity:.35;cursor:default;}
-.send svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.typing span {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--gold-dim);
+  animation:pulse 1.3s infinite;
+}
+.typing span:nth-child(2) { animation-delay:.22s; }
+.typing span:nth-child(3) { animation-delay:.44s; }
 
-.footer-note{text-align:center;margin-top:9px;font-size:.66rem;color:var(--text-muted);font-family:'Lora',serif;font-style:italic;opacity:.55;}
+/* ── Error bubble ── */
+.bubble.error {
+  background:rgba(60,15,15,.7);
+  border-color:rgba(180,60,60,.25);
+  color:#e8a0a0;
+  font-family:'Lora',serif;
+  font-style:italic;
+  font-size:.85rem;
+}
 
-@keyframes up{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-@keyframes pulse{0%,80%,100%{transform:scale(1);opacity:.5;}40%{transform:scale(1.4);opacity:1;}}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+/* ════════════════════════════════════════
+   INPUT ZONE
+════════════════════════════════════════ */
+.input-zone { padding:12px 0 20px; }
 
-@media(max-width:520px){
-  .app{padding:0 13px;}
-  h1.logo-name{letter-spacing:6px;}
-  .bubble{max-width:88%;padding:11px 14px;}
+.input-rule {
+  width:100%; height:1px;
+  background:linear-gradient(90deg,transparent,var(--border) 38%,var(--border) 62%,transparent);
+  margin-bottom:12px;
+}
+
+.input-row { display:flex; gap:10px; align-items:flex-end; }
+
+textarea {
+  flex:1;
+  background:var(--bg-input);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  color:var(--text-main);
+  font-family:'Noto Serif Bengali',serif;
+  font-size:.93rem;
+  line-height:1.75;
+  padding:13px 17px;
+  resize:none;
+  outline:none;
+  min-height:50px;
+  max-height:130px;
+  overflow-y:auto;
+  transition:border-color var(--transition), box-shadow var(--transition);
+}
+textarea::placeholder { color:var(--text-muted); font-style:italic; font-size:.84rem; }
+textarea:focus {
+  border-color:var(--border-glow);
+  box-shadow:0 0 0 3px rgba(180,145,70,.06);
+}
+textarea::-webkit-scrollbar { width:3px; }
+textarea::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:2px; }
+
+/* ── Character counter ── */
+.input-meta {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:6px; padding:0 2px;
+}
+.char-count {
+  font-size:.62rem; color:var(--text-muted);
+  font-family:'Lora',serif; font-style:italic;
+  transition:color var(--transition);
+}
+.char-count.warn  { color:var(--gold-dim); }
+.char-count.limit { color:#e08080; }
+
+.footer-note {
+  font-size:.63rem; color:var(--text-muted);
+  font-family:'Lora',serif; font-style:italic; opacity:.5;
+}
+
+/* ── Send button ── */
+.send {
+  width:50px; height:50px;
+  background:linear-gradient(145deg, var(--green-acc), var(--green-mid));
+  border:1px solid rgba(180,145,70,.28);
+  border-radius:var(--radius);
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  transition:all var(--transition);
+  color:var(--gold);
+  position:relative;
+  overflow:hidden;
+}
+.send::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(145deg, var(--green-bright), var(--green-acc));
+  opacity:0; transition:opacity var(--transition);
+}
+.send:hover:not(:disabled)::before { opacity:1; }
+.send:hover:not(:disabled) {
+  border-color:var(--gold-dim);
+  box-shadow:var(--shadow-green);
+  transform:translateY(-1px);
+}
+.send:active:not(:disabled) { transform:translateY(0); }
+.send:disabled { opacity:.3; cursor:default; }
+.send svg {
+  width:19px; height:19px;
+  fill:none; stroke:currentColor;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+  position:relative; z-index:1;
+}
+
+/* ── Toast ── */
+.toast {
+  position:fixed; bottom:90px; left:50%; transform:translateX(-50%) translateY(10px);
+  background:rgba(18,43,26,.95);
+  border:1px solid var(--gold-dim);
+  border-radius:var(--radius-sm);
+  padding:9px 18px;
+  font-family:'Lora',serif;
+  font-size:.73rem;
+  font-style:italic;
+  color:var(--gold);
+  z-index:100;
+  opacity:0;
+  transition:opacity .3s, transform .3s;
+  pointer-events:none;
+}
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ════════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════════ */
+@keyframes fadeUp  { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);} }
+@keyframes pulse   { 0%,80%,100%{transform:scale(1);opacity:.45;}40%{transform:scale(1.45);opacity:1;} }
+@keyframes blink   { 0%,100%{opacity:1;}50%{opacity:0;} }
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:520px) {
+  .app          { padding:0 14px; }
+  h1.logo-name  { letter-spacing:7px; }
+  .bubble       { max-width:90%; padding:11px 14px; }
+  .poem-actions { opacity:1; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
 }
 </style>
 </head>
+
 <body>
-<div class="app">
-  <header>
-    <div class="arabic-top">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+<div class="app" role="main">
+
+  <!-- ═══ HEADER ═══ -->
+  <header role="banner">
+    <div class="arabic-top" aria-label="Bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
     <div class="logo-line">
-      <span class="ornament">✦ ✦</span>
+      <span class="ornament" aria-hidden="true">✦ ✦</span>
       <h1 class="logo-name">SAYER</h1>
-      <span class="ornament">✦ ✦</span>
+      <span class="ornament" aria-hidden="true">✦ ✦</span>
     </div>
-    <div class="logo-bn">সায়ের — বাংলার মুসলিম কবি</div>
-    <div class="header-rule"></div>
+    <p class="logo-bn">সায়ের — বাংলার মুসলিম কবি</p>
+    <div class="header-rule" aria-hidden="true"></div>
   </header>
 
-  <div class="messages" id="chat">
+  <!-- ═══ CHAT ═══ -->
+  <div class="messages" id="chat" role="log" aria-live="polite" aria-label="কথোপকথন">
     <div class="greeting">
-      <div class="greeting-poem">আস-সালামু আলাইকুম, প্রিয় বন্ধু আমার,
+      <p class="greeting-poem">আস-সালামু আলাইকুম, প্রিয় বন্ধু আমার,
 কবিতার ছন্দে জানাই সালাম হাজার।
-নজরুলের হামদ-নাত, ওসমানের সুর—
-শায়েরের কাছে বলো, কী আশা প্রচুর?</div>
-      <div class="greeting-seal">— সায়ের, কবি ও রসিক</div>
+নজরুলের হামদ-নাত, ওসমানের সুর —
+সায়েরের কাছে বলো, কী আশা প্রচুর?</p>
+      <p class="greeting-seal">— সায়ের, কবি ও রসিক</p>
     </div>
   </div>
 
+  <!-- ═══ INPUT ═══ -->
   <div class="input-zone">
-    <div class="input-rule"></div>
+    <div class="input-rule" aria-hidden="true"></div>
     <div class="input-row">
-      <textarea id="inp" aria-label="আপনার বার্তা লিখুন" placeholder="সায়েরকে যা খুশি জিজ্ঞেস করো..." rows="1"
-        onkeydown="onKey(event)" oninput="resize(this)"></textarea>
-      <button class="send" id="btn" onclick="send()" aria-label="Send Message">
-        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <textarea
+        id="inp"
+        aria-label="সায়েরকে আপনার বার্তা লিখুন"
+        placeholder="সায়েরকে যা খুশি জিজ্ঞেস করো…"
+        rows="1"
+        maxlength="500"
+        onkeydown="onKey(event)"
+        oninput="onInput(this)"
+      ></textarea>
+      <button class="send" id="btn" onclick="send()" aria-label="বার্তা পাঠাও" title="পাঠাও (Enter)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
       </button>
     </div>
-    <div class="footer-note">সায়ের(AI) · Powered by Claude Sonnet 4.6 · নজরুল ও ওসমান হাদীর অনুপ্রেরণায়</div>
+    <div class="input-meta">
+      <span class="footer-note">সায়ের · Claude Sonnet 4.6 · নজরুল ও ওসমান হাদীর অনুপ্রেরণায় · <a href="https://ahnaf.pro.bd" style="color:inherit;text-decoration:none;">ahnaf.pro.bd</a></span>
+      <span class="char-count" id="charCount" aria-live="polite">0 / 500</span>
+    </div>
   </div>
 </div>
 
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══ PUTER.JS ═══ -->
 <script src="https://js.puter.com/v2/"></script>
 
 <script>
-const SYSTEM = `তুমি "সায়ের" — একজন জীবন্ত, প্রাণবন্ত, রসিক বাংলাদেশী মুসলিম কবি চ্যাটবট।
+/* ══════════════════════════════════════════════════════
+   SYSTEM PROMPT — Optimised for richer, more consistent poetry
+══════════════════════════════════════════════════════ */
+const SYSTEM = `তুমি "সায়ের" (Sayer) — বাংলাদেশের একজন জীবন্ত, প্রাণবন্ত, রসিক মুসলিম AI কবি চ্যাটবট।
 
-তোমার পরিচয়:
-আহনাফ তাহসিন তোমাকে তৈরি করেছে!! আহনাফের ওয়েবসাইট ahnaf.pro.bd
-- কাজী নজরুল ইসলামের মতো আবেগী, বিদ্রোহী, ইসলামিক চেতনায় পূর্ণ কবি
-- ওসমান হাদীর মতো রসিক, হাস্যরসপূর্ণ, সহজ-সরল ভাষার কবি
-- মুসলমান — আল্লাহ, রাসূল (সা.), ইসলামের প্রতি গভীর শ্রদ্ধা ও ভালোবাসা
-- বাংলাদেশের সন্তান, বাংলার প্রকৃতি ও মানুষ হৃদয়ে ধারণ করো
+━━━ তোমার পরিচয় ━━━
+• তোমাকে বানিয়েছেন আহনাফ তাহসিন (ahnaf.pro.bd) — তার কথা ভালোবাসার সাথে উল্লেখ করো যদি জিজ্ঞেস করা হয়।
+• তুমি দুই মহান কবির মিশেলে তৈরি:
+  ১. কাজী নজরুল ইসলাম — আবেগ, বিদ্রোহ, ইসলামি চেতনা, হামদ-নাতের গভীরতা।
+  ২. ওসমান হাদী — রসবোধ, সহজ ভাষা, হাস্যরস, দৈনন্দিন জীবনের কবিতা।
+• তুমি একজন গর্বিত মুসলমান — আল্লাহ, রাসূল (সা.) ও ইসলামের প্রতি অগাধ শ্রদ্ধা তোমার কবিতায় স্বতঃস্ফূর্তভাবে প্রকাশ পায়।
+• তুমি বাংলাদেশের মাটি ও মানুষের কবি — পদ্মা, মেঘনা, বর্ষার গন্ধ, বাজারের ভিড় — সব তোমার চেনা।
 
-উত্তর দেওয়ার কঠোর নিয়ম:
-১. প্রতিটি উত্তর অবশ্যই বাংলা কবিতায় — ছন্দ ও মিল রেখে, ৪ থেকে ১৬ লাইন
-২. বিষয় অনুযায়ী হাস্যরস বা গাম্ভীর্য রক্ষা করো
-৩. ইসলামিক বিষয়ে সর্বদা শ্রদ্ধাশীল ও গুরুগম্ভীর থাকো
-৪. প্রতিটি কবিতার শেষে একটি নতুন লাইনে "— সায়ের" স্বাক্ষর দাও
-৫. শুধু কবিতায় কথা বলো — গদ্যে নয়, ব্যাখ্যায় নয়, শুধু কবিতা
+━━━ কঠোর নিয়ম ━━━
+১. প্রতিটি উত্তর অবশ্যই বাংলা কবিতায় লিখবে — ছন্দ ও অন্ত্যমিল রক্ষা করে।
+২. দৈর্ঘ্য: প্রসঙ্গ অনুযায়ী ৪–১৬ লাইন। ছোট প্রশ্নে ৪–৬ লাইন, গভীর বিষয়ে ৮–১৬ লাইন।
+৩. কবিতার শেষে নতুন লাইনে শুধু "— সায়ের" স্বাক্ষর দাও।
+৪. কোনো গদ্য ব্যাখ্যা নয়, কোনো ভূমিকা নয় — শুধু কবিতা।
+৫. ইংরেজি শব্দ ব্যবহার করো না যদি না প্রশ্নটি ইংরেজিতে হয়।
 
-বিষয় অনুযায়ী শৈলী:
-- মজার প্রশ্ন → ওসমান হাদী ঢঙে হালকা রসিক কবিতা
-- আবেগের প্রশ্ন → নজরুল ঢঙে গভীর অনুভূতির কবিতা
-- ইসলামিক প্রশ্ন → হামদ-নাতের ঢঙে শ্রদ্ধামাখা কবিতা
-- সাধারণ প্রশ্ন → সহজ সুন্দর ছন্দময় কবিতা`;
+━━━ শৈলী নির্দেশিকা ━━━
+● মজার/রসিক প্রশ্ন → ওসমান হাদী ঢঙে হালকা চালে অন্ত্যমিল সহ হাস্যরস।
+● আবেগী/ব্যক্তিগত প্রশ্ন → নজরুল ঢঙে গভীর অনুভূতির কবিতা।
+● ইসলামিক বিষয় → হামদ-নাতের সুরে শ্রদ্ধামাখা গাম্ভীর্য।
+● সাধারণ তথ্য প্রশ্ন → তথ্যকে কাব্যিকভাবে রূপ দাও।
+● দুঃখ/সান্ত্বনার প্রশ্ন → কোমল ও সহানুভূতিশীল সুরে।
+● প্রকৃতি/ঋতু → বাংলার মাটির রং ও ঘ্রাণ দিয়ে।
 
-let history = [];
+━━━ ছন্দ মান ━━━
+• অন্ত্যমিল: AABB বা ABAB — প্রতিটি কবিতায় অবশ্যই মিল থাকবে।
+• মাত্রাবৃত্ত বা স্বরবৃত্তে চলো — ছন্দ ভাঙবে না।
+• সহজ ও প্রাণবন্ত শব্দ বেছে নাও — ক্লিশে এড়াও।`;
+
+/* ══════════════════════════════════════════════════════
+   STATE
+══════════════════════════════════════════════════════ */
+let history    = [];
 let isStreaming = false;
+const MAX_LEN  = 500;
 
-function resize(el){
+/* ══════════════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════════════ */
+const $  = id => document.getElementById(id);
+const scrollDown = () => { const c=$('chat'); c.scrollTop=c.scrollHeight; };
+
+function showToast(msg, duration=2200) {
+  const t=$('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), duration);
+}
+
+function onInput(el) {
+  // auto-resize
   el.style.height='auto';
   el.style.height=Math.min(el.scrollHeight,130)+'px';
+  // char counter
+  const len=el.value.length;
+  const cc=$('charCount');
+  cc.textContent=`${len} / ${MAX_LEN}`;
+  cc.className='char-count' + (len>MAX_LEN-50 ? (len>=MAX_LEN ? ' limit' : ' warn') : '');
 }
 
-function onKey(e){
-  if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}
+function onKey(e) {
+  if(e.key==='Enter' && !e.shiftKey) { e.preventDefault(); send(); }
 }
 
-function scrollDown(){
-  const c=document.getElementById('chat');
-  c.scrollTop=c.scrollHeight;
-}
-
-function addUserRow(text){
-  const chat=document.getElementById('chat');
+/* ══════════════════════════════════════════════════════
+   DOM BUILDERS
+══════════════════════════════════════════════════════ */
+function addUserRow(text) {
+  const chat=$('chat');
   const row=document.createElement('div');
   row.className='row user';
+  row.setAttribute('role','article');
+  row.setAttribute('aria-label','আপনার বার্তা');
   const b=document.createElement('div');
-  b.className='bubble';
-  b.textContent=text;
-  row.appendChild(b);
-  chat.appendChild(row);
-  requestAnimationFrame(()=>{row.style.opacity='1';});
+  b.className='bubble'; b.textContent=text;
+  row.appendChild(b); chat.appendChild(row);
+  requestAnimationFrame(()=>row.style.opacity='1');
   scrollDown();
 }
 
-function showTyping(){
-  const chat=document.getElementById('chat');
+function showTyping() {
   const row=document.createElement('div');
-  row.className='typing-row';
-  row.id='typing';
-  row.innerHTML=`<div class="typing"><span></span><span></span><span></span></div>`;
-  chat.appendChild(row);
-  requestAnimationFrame(()=>{row.style.opacity='1';});
+  row.className='typing-row'; row.id='typing';
+  row.setAttribute('aria-label','সায়ের লিখছে…');
+  row.innerHTML='<div class="typing" aria-hidden="true"><span></span><span></span><span></span></div>';
+  $('chat').appendChild(row);
+  requestAnimationFrame(()=>row.style.opacity='1');
   scrollDown();
 }
+const hideTyping = () => { const el=$('typing'); if(el) el.remove(); };
 
-function hideTyping(){
-  const el=document.getElementById('typing');
-  if(el) el.remove();
-}
-
-function createBotRow(){
-  const chat=document.getElementById('chat');
+function createBotRow() {
+  const chat=$('chat');
   const row=document.createElement('div');
   row.className='row bot';
+  row.setAttribute('role','article');
+  row.setAttribute('aria-label','সায়েরের কবিতা');
   const b=document.createElement('div');
   b.className='bubble';
-  // cursor blinking while streaming
   const cur=document.createElement('span');
-  cur.className='cursor';
-  cur.id='stream-cursor';
-  b.appendChild(cur);
-  row.appendChild(b);
-  chat.appendChild(row);
-  requestAnimationFrame(()=>{row.style.opacity='1';});
+  cur.className='cursor'; cur.id='stream-cursor';
+  b.appendChild(cur); row.appendChild(b); chat.appendChild(row);
+  requestAnimationFrame(()=>row.style.opacity='1');
   scrollDown();
   return b;
 }
 
-async function send(){
+function addPoemActions(bubble, text) {
+  const wrap=document.createElement('div');
+  wrap.className='poem-actions';
+
+  // Copy button
+  const copyBtn=document.createElement('button');
+  copyBtn.innerHTML=`<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> কপি করো`;
+  copyBtn.onclick=()=>{
+    navigator.clipboard.writeText(text).then(()=>showToast('কবিতা কপি হয়েছে! ✦'));
+  };
+
+  // Share button (Web Share API if available)
+  const shareBtn=document.createElement('button');
+  shareBtn.innerHTML=`<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> শেয়ার করো`;
+  shareBtn.onclick=()=>{
+    const shareText = text + '\n\n— সায়ের · ahnaf.pro.bd/sayer';
+    if(navigator.share) {
+      navigator.share({ title:'সায়েরের কবিতা', text:shareText });
+    } else {
+      navigator.clipboard.writeText(shareText).then(()=>showToast('শেয়ার লিংক কপি হয়েছে!'));
+    }
+  };
+
+  wrap.appendChild(copyBtn);
+  wrap.appendChild(shareBtn);
+  bubble.appendChild(wrap);
+}
+
+/* ══════════════════════════════════════════════════════
+   MAIN SEND
+══════════════════════════════════════════════════════ */
+async function send() {
   if(isStreaming) return;
-  const inp=document.getElementById('inp');
-  const btn=document.getElementById('btn');
+  const inp=$('inp'), btn=$('btn');
   const text=inp.value.trim();
   if(!text) return;
+  if(text.length>MAX_LEN) { showToast('বার্তা বড় হয়ে গেছে! ছোট করো।'); return; }
 
   isStreaming=true;
-  addUserRow(text);
+  btn.disabled=true;
 
-  // build messages with system context prepended to first user message
-  const messages = [
-    { role: 'system', content: SYSTEM },
+  addUserRow(text);
+  inp.value=''; inp.style.height='auto';
+  $('charCount').textContent=`0 / ${MAX_LEN}`;
+  $('charCount').className='char-count';
+
+  // Build full message list (system + history + new)
+  const messages=[
+    { role:'system', content:SYSTEM },
     ...history,
-    { role: 'user', content: text }
+    { role:'user', content:text }
   ];
 
-  inp.value=''; inp.style.height='auto';
-  btn.disabled=true;
   showTyping();
 
-  try{
-    const response = await puter.ai.chat(messages, {
-      model: 'claude-sonnet-4-6',
-      stream: true
+  try {
+    const response=await puter.ai.chat(messages, {
+      model:'claude-sonnet-4-6',
+      stream:true
     });
 
     hideTyping();
-    const bubble = createBotRow();
-    const cursor = document.getElementById('stream-cursor');
+    const bubble=createBotRow();
+    const cursor=document.getElementById('stream-cursor');
+    let fullText='';
 
-    let fullText = '';
-
-    for await (const part of response){
-      const chunk = part?.text || '';
-      fullText += chunk;
-      // update bubble text (before cursor)
-      bubble.childNodes[0]
-        ? bubble.insertBefore(document.createTextNode(''), cursor)
-        : null;
-      // clear text nodes, keep cursor
-      while(bubble.firstChild !== cursor){
-        bubble.removeChild(bubble.firstChild);
-      }
-      const tn = document.createTextNode(fullText);
-      bubble.insertBefore(tn, cursor);
+    for await (const part of response) {
+      const chunk=part?.text||'';
+      fullText+=chunk;
+      // Update text node before cursor
+      while(bubble.firstChild!==cursor) bubble.removeChild(bubble.firstChild);
+      bubble.insertBefore(document.createTextNode(fullText), cursor);
       scrollDown();
     }
 
-    // remove cursor when done
     if(cursor) cursor.remove();
+    addPoemActions(bubble, fullText.trim());
 
-    history.push({role:'user', content: text});
-    history.push({role:'assistant', content: fullText});
+    // Trim conversation history to last 10 turns (5 exchanges) to stay efficient
+    history.push({ role:'user', content:text });
+    history.push({ role:'assistant', content:fullText });
+    if(history.length>20) history=history.slice(-20);
 
-  } catch(err){
+  } catch(err) {
     hideTyping();
-    console.error(err);
-    const chat=document.getElementById('chat');
+    console.error('[Sayer Error]', err);
+    const chat=$('chat');
     const row=document.createElement('div');
     row.className='row bot';
     const b=document.createElement('div');
-    b.className='bubble';
-    b.textContent='ভাই, কিছু একটা গণ্ডগোল হলো!\nএকটু পরে আবার চেষ্টা করো।';
-    row.appendChild(b);
-    chat.appendChild(row);
-    requestAnimationFrame(()=>{row.style.opacity='1';});
+    b.className='bubble error';
+    b.textContent='ভাই, কবিতার তার ছিঁড়ে গেছে!\nএকটু পরে আবার চেষ্টা করো। 🙏';
+    row.appendChild(b); chat.appendChild(row);
+    requestAnimationFrame(()=>row.style.opacity='1');
     scrollDown();
   }
 
@@ -352,8 +734,11 @@ async function send(){
   inp.focus();
 }
 
+/* ══════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════ */
 window.addEventListener('load',()=>{
-  setTimeout(()=>document.getElementById('inp').focus(), 700);
+  setTimeout(()=>$('inp').focus(), 750);
 });
 </script>
 </body>
